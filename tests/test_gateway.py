@@ -1,3 +1,5 @@
+import pytest
+
 from gateway import SemanticGateway
 
 
@@ -32,3 +34,8 @@ def test_abstain_when_instability_is_high():
     )
     assert result.decision == "abstain"
     assert result.path == "blocked"
+
+
+def test_invalid_threshold_order_raises():
+    with pytest.raises(ValueError):
+        SemanticGateway(ace_threshold=0.70, deep_threshold=0.40)
