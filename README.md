@@ -89,28 +89,11 @@ Repository Structure
      └─ abstain
 
 ```
-     ace-semantic-gateway
+ace-semantic-gateway
 │
-├─ gateway/                    ← core middleware
+├─ gateway/
 │  ├─ __init__.py
-│  ├─ gateway.py               ← main orchestrator
-│  ├─ pipeline.py              ← request pipeline
-│  ├─ decision.py              ← answer / clarify / abstain logic
-│  ├─ embedding_layer.py       ← embedding interface
-│  ├─ ace_layer.py             ← ACE Minimum Energy integration
-│  └─ deep_reasoning.py        ← deep axiomatic reasoning integration
-│
-├─ adapters/                   ← external model providers
-│  ├─ openai_adapter.py
-│  ├─ ollama_adapter.py
-│  └─ local_embedding_adapter.py
-│
-├─ api/                        ← REST or service interface
-│  ├─ app.py
-│  └─ routes.py
-│
-├─ configs/
-│  └─ gateway_config.yaml
+│  └─ gateway.py
 │
 ├─ examples/
 │  └─ basic_gateway_demo.py
@@ -120,6 +103,7 @@ Repository Structure
 │
 ├─ README.md
 ├─ pyproject.toml
+├─ requirements.txt
 └─ LICENSE
 ```
 
