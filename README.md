@@ -27,6 +27,36 @@ A request enters the gateway and is first evaluated with the **ACE Minimum Energ
 This allows the system to remain lightweight for well-grounded inputs while still providing stronger reasoning when ambiguity or semantic instability is detected.
 
 ---
+## Concept
+
+ACE Semantic Gateway introduces **pre-prompt semantic control for LLM systems**.
+
+Instead of relying solely on prompt engineering, the gateway evaluates the semantic stability of a request **before generation occurs**.
+
+This creates a deterministic layer that routes requests according to their semantic alignment.
+
+## Pre-Prompt Semantic Layer
+
+```text
+input
+  │
+  ▼
+pre-prompt semantic layer
+  │
+  ▼
+LLM
+```
+Traditional systems operate directly from prompt to generation.
+
+ACE Semantic Gateway introduces a pre-prompt semantic layer that evaluates semantic stability before the request reaches the model.
+
+This enables:
+
+prompt-agnostic routing
+geometric semantic evaluation
+grounded vector alignment
+deterministic semantic control
+answer / clarify / abstain decisions before generation
 
 ## Architecture
 
@@ -92,50 +122,4 @@ Repository Structure
 ├─ pyproject.toml
 └─ LICENSE
 ```
-Decision Logic
 
-The gateway can return three high-level outcomes:
-
-answer → proceed normally through the fast path
-clarify → ask for refinement or additional grounding
-abstain → avoid answering when semantic instability is too high
-Design Goals
-Model-agnostic
-Composable with existing LLM systems
-Fast-path by default
-Escalation by semantic instability
-Separation between mathematical scoring and deep reasoning
-Planned Integrations
-ace-minimum-energy-criterion
-axiomatic-criterion-engine
-Example Flow
-A user request enters the gateway
-The request is embedded and evaluated semantically
-The ACE layer computes origin cost
-If cost is below threshold, the system uses the fast path
-If cost exceeds threshold, the system escalates to deep reasoning
-The final decision is returned as answer, clarify, or abstain
-Status
-
-This repository is the middleware layer of the ACE ecosystem and is currently under active development.
-
-```markdown
-## Semantic Routing Pipeline
-
-```mermaid
-flowchart LR
-    U["User Request"] --> E["Embedding Layer"]
-    E --> C["ACE Minimum Energy"]
-    C -->|cost < threshold| F["FAST Path"]
-    C -->|cost >= threshold| D["Deep Reasoning"]
-
-    F --> L["LLM Generation"]
-    D --> X["Axiomatic Criterion Engine"]
-
-    L --> Z["Decision Layer"]
-    X --> Z["Decision Layer"]
-
-    Z --> A["answer"]
-    Z --> B["clarify"]
-    Z --> C2["abstain"]
-```
