@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ace-semantic-gateway"
-version = "0.1.0a1"
+version = "0.2.0"
 description = "Pre-prompt semantic control for language models."
 readme = "README.md"
 requires-python = ">=3.10"
