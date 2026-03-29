@@ -1,6 +1,8 @@
 ```markdown
 # ACE Semantic Gateway
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19304475.svg)](https://doi.org/10.5281/zenodo.19304475)
+
 A deterministic architecture for stabilizing semantic inference in Large Language Models using **contextual reference fields** and the **ACE Minimum Energy Criterion**.
 
 ---
@@ -112,11 +114,11 @@ flowchart TD
     L -->|Low| M["Answer"]
     L -->|Medium| N["Clarify / Deep Analysis"]
     L -->|High| O["Abstain / Block"]
+```markdown
 ---
 
 # Repository Structure
 
-```
 
 ace-semantic-gateway
 │
@@ -376,7 +378,7 @@ If you use this work in research, please cite:
 
 ```
 
-Rosati Beristain, Ernesto
+Rosati Beristain, Ernesto. (2026).
 
 ACE Semantic Gateway Architecture
 
