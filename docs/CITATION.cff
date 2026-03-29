@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+title: "ACE Semantic Gateway"
+message: "If you use this work, please cite it using the metadata below."
+type: software
+
+authors:
+  - family-names: "Rosati Beristain"
+    given-names: "Ernesto"
+    orcid: "https://orcid.org/0009-0008-1974-6538"
+
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.-----
+
+repository-code: "https://github.com/rosatisoft/ace-semantic-gateway"
+
+license: "Apache-2.0"
+
+keywords:
+  - large language models
+  - hallucination mitigation
+  - semantic stability
+  - contextual inference
+  - embedding space
+  - artificial intelligence safety
+
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Rosati Beristain"
+      given-names: "Ernesto"
+  title: "Contextual ACE Gateway Architecture"
+  year: 2026
+  doi: 10.5281/zenodo.19162999
+  url: "https://zenodo.org/records/19162999"
