@@ -8,7 +8,7 @@ A deterministic architecture for stabilizing semantic inference in Large Languag
 
 ---
 
-# Overview
+## Overview
 
 Large Language Models are extremely capable, but they remain vulnerable to a persistent problem:
 
@@ -69,7 +69,7 @@ LLM generation
 
 ---
 
-# Core Idea
+## Core Idea
 
 The ACE framework introduces a **geometric interpretation of semantic alignment**.
 
@@ -99,7 +99,7 @@ Hallucination can therefore be interpreted as a form of **semantic instability**
 
 ---
 
-# ACE Architecture
+## ACE Architecture
 
 The ACE Semantic Gateway introduces a contextual stabilization layer before LLM generation.
 
@@ -124,7 +124,7 @@ flowchart TD
     I --> J
     A --> J
 
-    J --> K[Origin Cost O(z)]
+    J --> K[Origin Cost: O_z]
 
     K --> L{Thresholds}
 
