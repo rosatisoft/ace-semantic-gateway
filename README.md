@@ -78,7 +78,7 @@ Each contextual domain defines a **reference subspace** in embedding space.
 Candidate responses are evaluated by measuring their deviation from that contextual field.
 
 
-```md
+
 ACE origin energy:
 
 
