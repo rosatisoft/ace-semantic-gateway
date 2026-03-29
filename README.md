@@ -77,6 +77,8 @@ Each contextual domain defines a **reference subspace** in embedding space.
 
 Candidate responses are evaluated by measuring their deviation from that contextual field.
 
+
+```md
 ACE origin energy:
 
 ```
@@ -86,6 +88,7 @@ O(z) = || z − P_S(z) ||²
 ````
 
 Where:
+```
 
 - `z` = semantic representation of a candidate response
 - `S` = contextual reference subspace
