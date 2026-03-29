@@ -143,7 +143,9 @@ ace-semantic-gateway
 │   ├─ ACE_THEORY.md
 │   ├─ FORMAL_NOTES.md
 │   ├─ ACE_MATH_APPENDIX.tex
-│   └─ RESEARCH_NOTES.md
+│       ├─ SCIENTIFIC_POSITION.md
+│   ├─ RESEARCH_NOTES.md
+│       └─ INDEX.md
 
 ```
 
