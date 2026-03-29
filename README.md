@@ -105,33 +105,32 @@ The ACE Semantic Gateway introduces a contextual stabilization layer before LLM 
 
 ```mermaid
 flowchart TD
-    A["Input"] --> B["Context Matrix"]
+    A[Input] --> B[Context Matrix]
 
-    B --> C{"Context clear?"}
+    B --> C{Context clear?}
 
-    C -->|No| D["Clarification Layer"]
-    D --> E["Refined Input"]
+    C -- No --> D[Clarification Layer]
+    D --> E[Refined Input]
     E --> B
 
-    C -->|Yes| F["Context Field"]
+    C -- Yes --> F[Context Field]
 
-    F --> G["Reference Prompt"]
-    F --> H["Axioms"]
-    F --> I["Knowledge Anchors"]
+    F --> G[Reference Prompt]
+    F --> H[Axioms]
+    F --> I[Knowledge Anchors]
 
-    G --> J["ACE Layer"]
+    G --> J[ACE Layer]
     H --> J
     I --> J
     A --> J
 
-    J --> K["Origin Cost O(z)"]
+    J --> K[Origin Cost O(z)]
 
-    K --> L{"Thresholds"}
+    K --> L{Thresholds}
 
-    L -->|Low| M["Answer"]
-    L -->|Medium| N["Clarify / Deep Analysis"]
-    L -->|High| O["Abstain / Block"]
-```
+    L -- Low --> M[Answer]
+    L -- Medium --> N[Clarify or Deep Analysis]
+    L -- High --> O[Abstain or Block]```
 
 ---
 
