@@ -102,7 +102,7 @@ Hallucination can therefore be interpreted as a form of **semantic instability**
 ## ACE Architecture
 
 The ACE Semantic Gateway introduces a contextual stabilization layer before LLM generation.
-
+```
 INPUT LAYER
 ↓
 CONTEXT DETECTION
@@ -114,6 +114,7 @@ ACE ENERGY CRITERION
 LLM GENERATION
 ↓
 OUTPUT VALIDATION
+```
 
 ```mermaid
 flowchart TD
