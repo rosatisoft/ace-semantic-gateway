@@ -15,6 +15,24 @@ The gateway uses two levels of analysis:
 
 This makes the gateway suitable for systems that require stronger control over semantic drift, hallucination risk, and unstable responses.
 
+## Paper
+
+The theoretical foundation of the ACE Semantic Gateway is described in the following paper:
+
+**From Prompt-Derived Subspaces to Contextual Reference Fields**
+
+This work introduces a deterministic contextual stabilization layer for large language model inference.
+
+📄 Paper:  
+`paper/ace-contextual-reference-fields.pdf`
+
+The paper explains:
+
+- Linguistic entropy and semantic instability
+- Contextual reference fields
+- The ACE minimum energy criterion
+- The ACE Semantic Gateway architecture
+
 ---
 
 ## Core Idea
