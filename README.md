@@ -86,7 +86,7 @@ O(z) = || z − P_S(z) ||²
 
 
 Where:
-
+```
 
 - `z` = semantic representation of a candidate response
 - `S` = contextual reference subspace
