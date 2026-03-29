@@ -97,7 +97,7 @@ High energy → contextual deviation
 
 Hallucination can therefore be interpreted as a form of **semantic instability**.
 
-```
+---
 
 # ACE Architecture
 
