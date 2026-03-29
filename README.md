@@ -133,6 +133,41 @@ flowchart TD
     L -- High --> O[Abstain or Block]
 ```
 
+
+```mermaid
+flowchart TD
+    %% Entrada inicial
+    A[Input del Usuario] 
+    --> B[Context Matrix]
+
+    B --> C{¿Contexto claro?}
+
+    %% Rama de Clarificación
+    C -- No --> D[Clarification Layer]
+    D --> E[Refined Input]
+    E --> B
+
+    %% Flujo principal cuando el contexto está claro
+    C -- Yes --> F[Context Field]
+
+    F --> G[Reference Prompt]
+    F --> H[Axioms]
+    F --> I[Knowledge Anchors]
+
+    G & H & I --> J[ACE Layer]
+
+    %% Decisión final basada en costo
+    J --> K[Origin Cost O(z)]
+    K --> L{Thresholds}
+
+    L -- Low --> M[Answer]
+    L -- Medium --> N[Clarify or Deep Analysis]
+    L -- High --> O[Abstain or Block]
+
+    %% Conexión directa opcional
+    A -.-> J
+```
+
 ---
 
 # Repository Structure
