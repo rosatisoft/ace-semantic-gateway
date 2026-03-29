@@ -130,7 +130,8 @@ flowchart TD
 
     L -- Low --> M[Answer]
     L -- Medium --> N[Clarify or Deep Analysis]
-    L -- High --> O[Abstain or Block]```
+    L -- High --> O[Abstain or Block]
+```
 
 ---
 
