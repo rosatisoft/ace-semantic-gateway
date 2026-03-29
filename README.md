@@ -382,7 +382,7 @@ ACE Semantic Gateway Architecture
 
 Zenodo DOI:
 
-10.5281/zenodo.19162999
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19304475.svg)](https://doi.org/10.5281/zenodo.19304475)
 
 ```
 
