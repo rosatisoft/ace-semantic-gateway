@@ -86,7 +86,7 @@ O(z) = || z − P_S(z) ||²
 
 
 Where:
-```
+
 
 - `z` = semantic representation of a candidate response
 - `S` = contextual reference subspace
@@ -97,7 +97,7 @@ High energy → contextual deviation
 
 Hallucination can therefore be interpreted as a form of **semantic instability**.
 
----
+```
 
 # ACE Architecture
 
