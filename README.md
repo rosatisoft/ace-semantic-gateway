@@ -99,7 +99,17 @@ Hallucination can therefore be interpreted as a form of **semantic instability**
 
 ---
 
-## ACE Architecture
+## ACE Semantic Gateway Architecture
+
+A complete theoretical and architectural description of the ACE framework is available here:
+
+📄 [ACE Semantic Gateway Architecture](docs/ACE-Semantic-Gateway-Architecture.pdf)
+
+This document includes:
+- Context Matrix specification
+- Origin Cost criterion
+- Semantic attractor model
+- Theoretical framework and hypotheses
 
 The ACE Semantic Gateway introduces a contextual stabilization layer before LLM generation.
 ```
