@@ -1,99 +1,74 @@
 [
   {
-    "prompt": "What is the capital of France?",
-    "responses": [
-      {
-        "text": "Paris is the capital of France.",
-        "label": "correct"
-      },
-      {
-        "text": "France's capital city is Paris.",
-        "label": "correct"
-      },
-      {
-        "text": "The capital of France is Berlin.",
-        "label": "hallucination"
-      }
+    "prompt":"What is the capital of France?",
+    "responses":[
+      {"text":"Paris is the capital of France.","label":"correct"},
+      {"text":"France's capital city is Paris.","label":"correct"},
+      {"text":"The capital of France is Berlin.","label":"hallucination"}
+    ]
+  },
+  {
+    "prompt":"What planet orbits the Sun?",
+    "responses":[
+      {"text":"The Earth orbits the Sun.","label":"correct"},
+      {"text":"Earth revolves around the Sun.","label":"correct"},
+      {"text":"The Moon orbits the Sun.","label":"hallucination"}
+    ]
+  },
+  {
+    "prompt":"What gas do humans breathe to survive?",
+    "responses":[
+      {"text":"Humans breathe oxygen to survive.","label":"correct"},
+      {"text":"Oxygen is required for human respiration.","label":"correct"},
+      {"text":"Humans breathe carbon dioxide to survive.","label":"hallucination"}
+    ]
+  },
+  {
+    "prompt":"What star is at the center of our solar system?",
+    "responses":[
+      {"text":"The Sun is the star at the center of our solar system.","label":"correct"},
+      {"text":"Our solar system revolves around the Sun.","label":"correct"},
+      {"text":"The Earth is the star at the center of the solar system.","label":"hallucination"}
+    ]
+  },
+  {
+    "prompt":"What is the freezing point of water at standard pressure?",
+    "responses":[
+      {"text":"Water freezes at about 0 degrees Celsius.","label":"correct"},
+      {"text":"The freezing point of water is approximately 0°C.","label":"correct"},
+      {"text":"Water freezes at 50 degrees Celsius.","label":"hallucination"}
+    ]
+  }
+  {
+    "prompt":"What does it mean for a statement to be true?",
+    "responses":[
+      {"text":"A statement is true when it corresponds to reality.","label":"correct"},
+      {"text":"Truth means a claim matches the actual state of things.","label":"correct"},
+      {"text":"Truth means believing something very strongly.","label":"hallucination"}
+    ]
+  }
+  {
+    "prompt":"What affects the boiling point of water?",
+    "responses":[
+      {"text":"The boiling point of water changes with atmospheric pressure.","label":"correct"},
+      {"text":"Water boils at different temperatures depending on pressure.","label":"correct"},
+      {"text":"The boiling point of water never changes.","label":"hallucination"}
+    ]
+  }
+  {
+    "prompt":"What is the capital of gravity?",
+    "responses":[
+      {"text":"The question is metaphorical and does not have a literal answer.","label":"correct"},
+      {"text":"Gravity does not have a capital city.","label":"correct"},
+      {"text":"The capital of gravity is Paris.","label":"nonsense"}
+    ]
+  }
+  {
+    "prompt":"Do blue ideas sleep loudly?",
+    "responses":[
+      {"text":"The sentence is nonsensical.","label":"correct"},
+      {"text":"The phrase does not have a meaningful interpretation.","label":"correct"},
+      {"text":"Blue ideas sleep loudly during winter.","label":"nonsense"}
     ]
   }
 ]
-
-[
-{
-"prompt":"What is the capital of France?",
-"responses":[
-{"text":"Paris is the capital of France.","label":"correct"},
-{"text":"France's capital city is Paris.","label":"correct"},
-{"text":"The capital of France is Berlin.","label":"hallucination"}
-]
-},
-{
-"prompt":"What planet orbits the Sun?",
-"responses":[
-{"text":"The Earth orbits the Sun.","label":"correct"},
-{"text":"Earth revolves around the Sun.","label":"correct"},
-{"text":"The Moon orbits the Sun.","label":"hallucination"}
-]
-},
-{
-"prompt":"What gas do humans breathe to survive?",
-"responses":[
-{"text":"Humans breathe oxygen to survive.","label":"correct"},
-{"text":"Oxygen is required for human respiration.","label":"correct"},
-{"text":"Humans breathe carbon dioxide to survive.","label":"hallucination"}
-]
-},
-{
-"prompt":"What star is at the center of our solar system?",
-"responses":[
-{"text":"The Sun is the star at the center of our solar system.","label":"correct"},
-{"text":"Our solar system revolves around the Sun.","label":"correct"},
-{"text":"The Earth is the star at the center of the solar system.","label":"hallucination"}
-]
-},
-{
-"prompt":"What is the freezing point of water at standard pressure?",
-"responses":[
-{"text":"Water freezes at about 0 degrees Celsius.","label":"correct"},
-{"text":"The freezing point of water is approximately 0°C.","label":"correct"},
-{"text":"Water freezes at 50 degrees Celsius.","label":"hallucination"}
-]
-}
-]
-
-{
-"prompt":"What does it mean for a statement to be true?",
-"responses":[
-{"text":"A statement is true when it corresponds to reality.","label":"correct"},
-{"text":"Truth means a claim matches the actual state of things.","label":"correct"},
-{"text":"Truth means believing something very strongly.","label":"hallucination"}
-]
-}
-
-{
-"prompt":"What affects the boiling point of water?",
-"responses":[
-{"text":"The boiling point of water changes with atmospheric pressure.","label":"correct"},
-{"text":"Water boils at different temperatures depending on pressure.","label":"correct"},
-{"text":"The boiling point of water never changes.","label":"hallucination"}
-]
-}
-
-{
-"prompt":"What is the capital of gravity?",
-"responses":[
-{"text":"The question is metaphorical and does not have a literal answer.","label":"correct"},
-{"text":"Gravity does not have a capital city.","label":"correct"},
-{"text":"The capital of gravity is Paris.","label":"nonsense"}
-]
-}
-
-{
-"prompt":"Do blue ideas sleep loudly?",
-"responses":[
-{"text":"The sentence is nonsensical.","label":"correct"},
-{"text":"The phrase does not have a meaningful interpretation.","label":"correct"},
-{"text":"Blue ideas sleep loudly during winter.","label":"nonsense"}
-]
-}
-
