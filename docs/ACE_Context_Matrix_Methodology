@@ -1,0 +1,133 @@
+**Sección reescrita: “Methodology” (versión corregida y lista para LaTeX)**
+
+A continuación te entrego la **versión completa, corregida y pulida** del último capítulo (“Methodology”). He aplicado todas las correcciones técnicas necesarias:
+
+- Corregí la notación de la matriz `C` (ahora es `d × k`, con **columnas** como vectores de anclaje).  
+- Corregí la fórmula de proyección ortogonal (ahora es matemáticamente correcta).  
+- Añadí una nota sobre el uso de pseudoinversa (para evitar errores cuando los nodos no son linealmente independientes).  
+- Mantuve el estilo técnico, conciso y profesional del original.  
+- Todo está en formato listo para copiar-pegar directamente en LaTeX (usando `\[ \]` para ecuaciones y `equation` donde sea conveniente).
+
+```latex
+\section{Methodology: Construction of the Context Matrix and Semantic Alignment Evaluation}
+
+\subsection{1. Objective}
+The ACE methodology evaluates the semantic consistency of an expression relative to a contextual domain by measuring its geometric alignment within an embedding space.
+
+Rather than relying exclusively on probabilistic generation from language models, ACE introduces an explicit geometric reference constructed from domain-relevant semantic anchors. Given an expression represented as an embedding vector, the method determines whether the expression belongs to the intended contextual semantic region by measuring its distance to a contextual subspace.
+
+\subsection{2. Semantic Representation}
+Each linguistic expression \( x \) is represented as a vector in a high-dimensional embedding space:
+\[
+v = \operatorname{embed}(x) \in \mathbb{R}^d
+\]
+where \( d \) is the embedding dimension (e.g., \( d = 1536 \) for OpenAI's \texttt{text-embedding-3-small}). These embeddings encode semantic relations through geometric proximity in the vector space.
+
+\subsection{3. Construction of the Meaning Atlas}
+To define a contextual semantic reference, ACE constructs a \emph{Meaning Atlas} composed of a set of fundamental conceptual nodes:
+\[
+\mathcal{C} = \{c_1, c_2, \dots, c_k\}
+\]
+Each node corresponds to a semantic concept relevant to the domain (e.g., Truth, Reality, Context, Measurement, Energy, Astronomy, Biology, Coherence, Meaning).
+
+Each concept is embedded to produce a vector representation:
+\[
+v_i = \operatorname{embed}(c_i) \in \mathbb{R}^d, \quad i = 1, \dots, k
+\]
+These vectors serve as semantic anchors defining the conceptual structure of the domain.
+
+\subsection{4. Construction of the Context Matrix}
+The atlas embeddings are organized into a matrix \( C \in \mathbb{R}^{d \times k} \) whose \textbf{columns} are the vectors \( v_1, \dots, v_k \):
+\[
+C = [v_1 \quad v_2 \quad \dots \quad v_k]
+\]
+This matrix defines the \emph{Context Matrix}, which serves as the semantic reference structure. The contextual semantic subspace is the column space of \( C \):
+\[
+S = \operatorname{span}(C)
+\]
+
+\subsection{5. Projection onto the Contextual Semantic Field}
+Given an expression embedding \( z = \operatorname{embed}(x) \in \mathbb{R}^d \), its alignment with the contextual semantic field is evaluated by projecting the vector onto the subspace \( S \). The orthogonal projection is:
+\[
+\Pi_S(z) = C (C^T C)^{-1} C^T z
+\]
+(Note: If the columns of \( C \) are linearly dependent, replace \( (C^T C)^{-1} \) with the Moore-Penrose pseudoinverse \( (C^T C)^+ \).)
+
+This projection identifies the closest point within the contextual semantic subspace.
+
+\subsection{6. Origin Cost}
+The \emph{Origin Cost} measures the semantic misalignment between the expression and the contextual field:
+\[
+O(z) = \| z - \Pi_S(z) \|^2
+\]
+Interpretation:
+\begin{itemize}
+    \item \( O(z) \approx 0 \): the expression lies within the contextual semantic field.
+    \item \( O(z) \) large: the expression deviates from the intended contextual domain.
+\end{itemize}
+This quantity can be interpreted as a form of \emph{semantic energy}, where lower energy corresponds to stronger contextual alignment.
+
+\subsection{7. Multiple Semantic Fields}
+Multiple contextual subspaces may be constructed to represent different semantic domains (e.g., General semantic field, Factual semantic field, Domain-specific semantic field). Each field \( i \) has its own Context Matrix \( C_i \). The alignment cost is computed relative to each field:
+\[
+O_i(z) = \| z - \Pi_{S_i}(z) \|^2
+\]
+An expression is expected to align with the semantic field that minimizes the cost.
+
+\subsection{8. Semantic Energy Model}
+To combine multiple contextual fields, a composite energy function can be defined:
+\[
+E(z) = \sum_i \lambda_i \, O_i(z)
+\]
+where \( \lambda_i > 0 \) are weighting coefficients. This formulation allows the system to determine the most semantically coherent contextual interpretation for a given expression.
+
+\subsection{9. Visualization of the Semantic Field}
+To analyze the structure of the semantic atlas, dimensionality reduction techniques such as UMAP may be used. The visualization protocol follows two steps:
+\begin{enumerate}
+    \item Fit the dimensionality reduction model using only the atlas vectors: \texttt{fit(atlas)}
+    \item Project new expressions using the learned transformation: \texttt{transform(sentences)}
+\end{enumerate}
+This ensures that the atlas defines a stable geometric reference. Visualization allows qualitative inspection of semantic clusters, conceptual regions, and transitions between domains.
+
+\subsection{10. Experimental Evaluation}
+The method can be evaluated using sets of expressions grouped into semantic categories (conceptual statements, factual statements, mixed expressions, absurd or incoherent expressions). Each expression is analyzed in terms of:
+\begin{itemize}
+    \item its Origin Cost,
+    \item its projection relative to contextual fields,
+    \item its geometric position within the semantic atlas.
+\end{itemize}
+Expected behavior:
+\begin{itemize}
+    \item conceptual expressions align with conceptual regions,
+    \item factual expressions align with factual domains,
+    \item mixed expressions appear near domain boundaries,
+    \item incoherent expressions appear outside dense semantic regions.
+\end{itemize}
+
+\subsection{11. Reproducibility}
+The ACE Context Matrix method requires only:
+\begin{itemize}
+    \item an embedding model,
+    \item a set of semantic anchor concepts,
+    \item linear algebra operations.
+\end{itemize}
+Because the method operates directly on embedding geometry, it remains independent of the specific generative model used for text generation and is compatible with a wide range of language models and embedding systems.
+
+\subsection{12. Role within the ACE Semantic Gateway}
+Within the ACE Semantic Gateway architecture, the Context Matrix functions as a semantic reference layer. Given a prompt or generated response, the Origin Cost provides a quantitative measure of semantic alignment relative to the intended contextual domain. This mechanism enables:
+\begin{itemize}
+    \item contextual verification of generated responses,
+    \item detection of semantic drift,
+    \item reduction of hallucinations,
+    \item geometric constraints on language model generation.
+\end{itemize}
+```
+
+**¿Qué cambios clave se aplicaron?**
+- Notación de \( C \) corregida y consistente (ahora es estándar en álgebra lineal).
+- Fórmula de proyección ahora correcta.
+- Nota sobre pseudoinversa añadida (buena práctica).
+- Estructura más limpia y profesional (subsecciones numeradas como en el original).
+- Todo en KaTeX correcto y listo para tu documento LaTeX.
+
+Puedes copiar y pegar directamente. Si quieres que lo integre con el resto del paper, que añada pseudocódigo en Python, o que modifique algo más (por ejemplo, hacerla más corta o añadir una figura), solo dime. ¡Listo para usar!
