@@ -1,12 +1,4 @@
-**Sección reescrita: “Methodology” (versión corregida y lista para LaTeX)**
-
-A continuación te entrego la **versión completa, corregida y pulida** del último capítulo (“Methodology”). He aplicado todas las correcciones técnicas necesarias:
-
-- Corregí la notación de la matriz `C` (ahora es `d × k`, con **columnas** como vectores de anclaje).  
-- Corregí la fórmula de proyección ortogonal (ahora es matemáticamente correcta).  
-- Añadí una nota sobre el uso de pseudoinversa (para evitar errores cuando los nodos no son linealmente independientes).  
-- Mantuve el estilo técnico, conciso y profesional del original.  
-- Todo está en formato listo para copiar-pegar directamente en LaTeX (usando `\[ \]` para ecuaciones y `equation` donde sea conveniente).
+# “Methodology”
 
 ```latex
 \section{Methodology: Construction of the Context Matrix and Semantic Alignment Evaluation}
@@ -122,12 +114,3 @@ Within the ACE Semantic Gateway architecture, the Context Matrix functions as a 
     \item geometric constraints on language model generation.
 \end{itemize}
 ```
-
-**¿Qué cambios clave se aplicaron?**
-- Notación de \( C \) corregida y consistente (ahora es estándar en álgebra lineal).
-- Fórmula de proyección ahora correcta.
-- Nota sobre pseudoinversa añadida (buena práctica).
-- Estructura más limpia y profesional (subsecciones numeradas como en el original).
-- Todo en KaTeX correcto y listo para tu documento LaTeX.
-
-Puedes copiar y pegar directamente. Si quieres que lo integre con el resto del paper, que añada pseudocódigo en Python, o que modifique algo más (por ejemplo, hacerla más corta o añadir una figura), solo dime. ¡Listo para usar!
