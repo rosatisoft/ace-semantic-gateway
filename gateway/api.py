@@ -114,7 +114,15 @@ def analyze(request: AnalyzeRequest):
 def guard(request: GuardRequest):
     text = request.text.lower()
 
-    if any(word in text for word in ["capital", "temperature", "oxygen", "fact"]):
+    if any(word in text for word in ["square circle", "true and false"]):
+        costs = {
+            "conceptual": 0.28,
+            "operational": 0.74,
+            "narrative": 0.79,
+        }
+        coherence_risk = 0.72
+
+    elif any(word in text for word in ["capital", "temperature", "oxygen", "fact"]):
         costs = {
             "conceptual": 0.82,
             "operational": 0.22,
@@ -138,14 +146,7 @@ def guard(request: GuardRequest):
         }
         coherence_risk = 0.10
 
-    elif any(word in text for word in ["square circle", "true and false"]):
-        costs = {
-            "conceptual": 0.28,
-            "operational": 0.74,
-            "narrative": 0.79,
-        }
-        coherence_risk = 0.72
-
+    
     else:
         costs = {
             "conceptual": 0.68,
