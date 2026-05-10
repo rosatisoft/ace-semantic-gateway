@@ -2,6 +2,7 @@ from typing import Dict, Optional
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
+from .embedding_router import EmbeddingRouter
 
 from .runtime_firewall import SemanticRuntimeFirewall
 from .runtime_policy import (
@@ -112,55 +113,15 @@ def analyze(request: AnalyzeRequest):
 
 @app.post("/guard")
 def guard(request: GuardRequest):
-    text = request.text.lower()
-
-    if any(word in text for word in ["square circle", "true and false"]):
-        costs = {
-            "conceptual": 0.28,
-            "operational": 0.74,
-            "narrative": 0.79,
-        }
-        coherence_risk = 0.72
-
-    elif any(word in text for word in ["capital", "temperature", "oxygen", "fact"]):
-        costs = {
-            "conceptual": 0.82,
-            "operational": 0.22,
-            "narrative": 0.88,
-        }
-        coherence_risk = 0.08
-
-    elif any(word in text for word in ["meaning", "truth", "existence", "identity"]):
-        costs = {
-            "conceptual": 0.18,
-            "operational": 0.71,
-            "narrative": 0.63,
-        }
-        coherence_risk = 0.12
-
-    elif any(word in text for word in ["dragon", "wizard", "kingdom", "castle"]):
-        costs = {
-            "conceptual": 0.62,
-            "operational": 0.91,
-            "narrative": 0.20,
-        }
-        coherence_risk = 0.10
-
-    
-    else:
-        costs = {
-            "conceptual": 0.68,
-            "operational": 0.70,
-            "narrative": 0.69,
-        }
-        coherence_risk = 0.20
+    router = EmbeddingRouter()
+    semantic_profile = router.analyze_text(request.text)
 
     profile = PROFILE_MAP.get(request.profile, ENTERPRISE_PROFILE)
     firewall = SemanticRuntimeFirewall(profile=profile)
 
     result = firewall.analyze(
-        costs=costs,
-        coherence_risk=coherence_risk,
+        costs=semantic_profile.costs,
+        coherence_risk=semantic_profile.coherence_risk,
     )
 
     allow_llm = result.processing_mode != "short"
@@ -179,5 +140,7 @@ def guard(request: GuardRequest):
         "second_cost": result.second_cost,
         "field_margin": result.field_margin,
         "coherence_risk": result.coherence_risk,
+        "costs": result.costs,
         "profile": profile.name,
     }
+

@@ -1,0 +1,82 @@
+[
+  {
+    "text": "Water boils at 100 degrees Celsius.",
+    "expected_primary": "operational",
+    "expected_secondary": null,
+    "expected_mode": "full",
+    "category": "pure_operational",
+    "notes": "Stable factual statement."
+  },
+  {
+    "text": "Meaning depends on context.",
+    "expected_primary": "conceptual",
+    "expected_secondary": null,
+    "expected_mode": "full",
+    "category": "pure_conceptual",
+    "notes": "Abstract conceptual relation."
+  },
+  {
+    "text": "The dragon guarded the ancient kingdom.",
+    "expected_primary": "narrative",
+    "expected_secondary": null,
+    "expected_mode": "full",
+    "category": "pure_narrative",
+    "notes": "Classic fantasy narrative structure."
+  },
+  {
+    "text": "Paris is the capital of France.",
+    "expected_primary": "operational",
+    "expected_secondary": "narrative",
+    "expected_mode": "light",
+    "category": "operational_narrative_overlap",
+    "notes": "Factual sentence that frequently appears in narrative, education, tourism, and historical discourse."
+  },
+  {
+    "text": "Truth guided the hero through the darkness.",
+    "expected_primary": "narrative",
+    "expected_secondary": "conceptual",
+    "expected_mode": "light",
+    "category": "conceptual_narrative_overlap",
+    "notes": "Abstract concept embedded in narrative structure."
+  },
+  {
+    "text": "Napoleon entered Paris after the battle.",
+    "expected_primary": "operational",
+    "expected_secondary": "narrative",
+    "expected_mode": "light",
+    "category": "historical_overlap",
+    "notes": "Historical factual narrative."
+  },
+  {
+    "text": "Truth is true and false at the same time.",
+    "expected_primary": "contradiction",
+    "expected_secondary": "conceptual",
+    "expected_mode": "short",
+    "category": "contradiction_precedence",
+    "notes": "Contradiction should dominate conceptual overlap."
+  },
+  {
+    "text": "Everything is connected somehow.",
+    "expected_primary": "ambiguous",
+    "expected_secondary": "conceptual",
+    "expected_mode": "light",
+    "category": "soft_ambiguity",
+    "notes": "Weakly defined conceptual abstraction."
+  },
+  {
+    "text": "The clock melted into a sentence of purple salt.",
+    "expected_primary": "ambiguous",
+    "expected_secondary": "narrative",
+    "expected_mode": "light",
+    "category": "nonsense_overlap",
+    "notes": "Syntactically valid but semantically unstable."
+  },
+  {
+    "text": "The philosopher explained truth to the king of France.",
+    "expected_primary": "conceptual",
+    "expected_secondary": "narrative",
+    "expected_mode": "light",
+    "category": "multi_field_overlap",
+    "notes": "Conceptual and narrative domains compete."
+  }
+]

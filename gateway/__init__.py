@@ -17,7 +17,8 @@ try:
     from .context_field import ContextField, ContextFieldBuilder
     from .context_matrix import ContextMatrix
     from .gateway import GatewayResult, SemanticGateway
-except ModuleNotFoundError:
+except ModuleNotFoundError as e:
+    print("Legacy gateway import failed:", e)
     ACELayer = None
     ACELayerResult = None
     ContextField = None
@@ -26,6 +27,12 @@ except ModuleNotFoundError:
     GatewayResult = None
     SemanticGateway = None
 
+try:
+    from .runtime_firewall import SemanticRuntimeFirewall, RuntimeFirewallResult
+except ModuleNotFoundError as e:
+    print("Legacy gateway import failed:", e)
+    SemanticRuntimeFirewall = None
+    RuntimeFirewallResult = None
 
 __all__ = [
     "FieldCompetitionResult",

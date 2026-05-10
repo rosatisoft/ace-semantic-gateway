@@ -1,0 +1,13 @@
+{
+  "field": "legal",
+  "embedding_model": "text-embedding-3-small",
+  "method": "svd_context_matrix",
+  "normalization": true,
+  "anchor_count": 50,
+  "embedding_dim": 1536,
+  "basis_shape": [
+    1536,
+    50
+  ],
+  "created_at": "2026-05-08T14:26:40.861638+00:00"
+}

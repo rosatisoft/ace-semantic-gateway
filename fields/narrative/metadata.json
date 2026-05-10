@@ -1,0 +1,13 @@
+{
+  "field": "narrative",
+  "embedding_model": "text-embedding-3-small",
+  "method": "svd_context_matrix",
+  "normalization": true,
+  "anchor_count": 60,
+  "embedding_dim": 1536,
+  "basis_shape": [
+    1536,
+    60
+  ],
+  "created_at": "2026-05-08T14:26:39.435299+00:00"
+}
