@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue)
 ![Research](https://img.shields.io/badge/type-research-green)
 
-A deterministic architecture for stabilizing semantic inference in Large Language Models using **contextual reference fields** and the **ACE Minimum Energy Criterion**.
+A semantic runtime stabilization and routing layer for Large Language Models using contextual reference fields, semantic field competition, and the ACE Minimum Energy Criterion.
 
 ---
 
@@ -38,13 +38,13 @@ into:
 
 input
 ↓
-context detection
+semantic runtime evaluation
 ↓
-contextual reference field
+dispersion gate
 ↓
-ACE energy evaluation
+routing policy
 ↓
-LLM generation
+LLM inference
 
 ```
 
@@ -69,6 +69,59 @@ LLM generation
 
 ---
 
+## Runtime Firewall Preview (v1.1)
+
+ACE Semantic Gateway v1.1 introduces a new runtime semantic firewall layer based on multi-field semantic competition.
+
+Instead of relying only on absolute semantic cost thresholds, the system evaluates:
+
+- semantic field competition
+- contextual alignment
+- field separation margins
+- coherence risk
+
+This enables the gateway to:
+
+- route factual, conceptual, and narrative requests
+- detect semantically unstable inputs
+- reduce semantic drift before deep inference
+- minimize unnecessary reasoning expansion
+- optimize inference cost and energy usage
+
+The runtime firewall operates as a lightweight middleware layer before LLM generation.
+
+---
+
+## ACE Atlas Integration (v1.1)
+
+ACE Semantic Gateway v1.1 integrates the ACE Atlas semantic runtime framework as its core evaluation engine.
+
+ACE Atlas provides:
+
+- semantic field geometry
+- origin cost evaluation
+- semantic density estimation
+- field competition analysis
+- runtime stability evaluation
+- semantic dispersion gating
+
+ACE Semantic Gateway operationalizes these mechanisms through:
+
+- FastAPI middleware endpoints
+- runtime routing
+- clarification policies
+- profile-aware inference control
+- and future enterprise orchestration systems
+
+Together they form:
+
+ACE Atlas → semantic runtime engine  
+ACE Semantic Gateway → operational middleware layer
+
+
+
+---
+
 ## Core Idea
 
 The ACE framework introduces a **geometric interpretation of semantic alignment**.
@@ -82,7 +135,8 @@ Candidate responses are evaluated by measuring their deviation from that context
 ACE origin energy:
 
 
-O(z) = || z − P_S(z) ||²
+```math
+O(z) = \| z - P_S(z) \|^2
 
 
 Where:
@@ -158,22 +212,54 @@ flowchart TD
 
 ---
 
+## Multi-Field Runtime Routing
+
+The runtime firewall introduces semantic competition between multiple contextual fields:
+
+- conceptual fields
+- operational/factual fields
+- narrative fields
+
+Inputs are evaluated through:
+
+best_field + best_cost + field_margin + coherence_risk
+
+This allows the system to distinguish between:
+
+- stable semantic requests
+- ambiguous inputs
+- contradictions
+- semantically unstable prompts
+- narrative/fictional contexts
+
+---
+
 # Repository Structure
 
-```
+```text
 ace-semantic-gateway
 │
 ├─ gateway/
+│   ├─ atlas_adapter.py
+│   ├─ embedding_router.py
+│   ├─ semantic_fields.py
+│   ├─ origin_cost.py
+│   ├─ api.py
 │   ├─ context_matrix.py
 │   ├─ context_field.py
-│   └─ ace_layer.py
+│   ├─ ace_layer.py
+│   ├─ field_competition.py
+│   ├─ runtime_policy.py
+│   └─ runtime_firewall.py
 │
 ├─ examples/
 │   ├─ context_demo.py
 │   └─ gateway_context_demo.py
 │
 ├─ tests/
-│   └─ test_context_matrix.py
+│   ├─ test_context_matrix.py
+│   ├─ test_field_competition.py
+│   └─ test_runtime_firewall.py
 │
 ├─ paper/
 │   ├─ ace-semantic-gateway.pdf
@@ -240,6 +326,31 @@ CLARIFY: False
 ```
 
 The system determines the contextual domain **before inference occurs**.
+
+## Start API
+
+```bash
+python -m uvicorn gateway.api:app --reload --port 8000
+```
+
+## Runtime Example
+
+```powershell
+Invoke-RestMethod `
+  -Uri "http://127.0.0.1:8000/guard" `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{"text":"After reviewing the data"}'
+```
+
+Expected result:
+
+```json
+{
+  "action": "CLARIFY",
+  "allow_llm": false
+}
+```
 
 ---
 
@@ -381,7 +492,11 @@ ACE introduces **explicit contextual alignment** before generation.
 
 Potential extensions:
 
-* automatic contextual matrix learning
+* runtime semantic firewalls
+* semantic routing middleware
+* drift-aware inference optimization
+* enterprise semantic governance
+* adaptive runtime policies 
 * embedding-based contextual clustering
 * dynamic semantic attractors
 * integration with retrieval systems
@@ -440,4 +555,4 @@ to
 
 **contextual semantic alignment**
 
-```
+

@@ -1,0 +1,13 @@
+{
+  "field": "operational",
+  "embedding_model": "text-embedding-3-small",
+  "method": "svd_context_matrix",
+  "normalization": true,
+  "anchor_count": 59,
+  "embedding_dim": 1536,
+  "basis_shape": [
+    1536,
+    59
+  ],
+  "created_at": "2026-05-08T14:26:38.643135+00:00"
+}
