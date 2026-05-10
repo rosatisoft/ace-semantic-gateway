@@ -2,7 +2,7 @@ from typing import Dict, Optional
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
-from .embedding_router import EmbeddingRouter
+from .atlas_adapter import AtlasGatewayAdapter
 
 from .runtime_firewall import SemanticRuntimeFirewall
 from .runtime_policy import (
@@ -113,34 +113,26 @@ def analyze(request: AnalyzeRequest):
 
 @app.post("/guard")
 def guard(request: GuardRequest):
-    router = EmbeddingRouter()
-    semantic_profile = router.analyze_text(request.text)
-
-    profile = PROFILE_MAP.get(request.profile, ENTERPRISE_PROFILE)
-    firewall = SemanticRuntimeFirewall(profile=profile)
-
-    result = firewall.analyze(
-        costs=semantic_profile.costs,
-        coherence_risk=semantic_profile.coherence_risk,
-    )
-
-    allow_llm = result.processing_mode != "short"
+    adapter = AtlasGatewayAdapter(profile=request.profile)
+    result = adapter.guard(request.text)
 
     return {
-        "input": request.text,
-        "allow_llm": allow_llm,
-        "decision": result.decision,
+        "input": result.input,
+        "action": result.action,
+        "allow_llm": result.allow_llm,
         "processing_mode": result.processing_mode,
         "route": result.route,
-        "confidence": result.confidence,
         "reason": result.reason,
         "best_field": result.best_field,
         "best_cost": result.best_cost,
         "second_field": result.second_field,
         "second_cost": result.second_cost,
         "field_margin": result.field_margin,
-        "coherence_risk": result.coherence_risk,
+        "best_density": result.best_density,
+        "density_margin": result.density_margin,
+        "stability_index": result.stability_index,
+        "clarification": result.clarification,
         "costs": result.costs,
-        "profile": profile.name,
+        "densities": result.densities,
+        "profile": result.profile,
     }
-

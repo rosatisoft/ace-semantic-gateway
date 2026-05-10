@@ -17,8 +17,7 @@ try:
     from .context_field import ContextField, ContextFieldBuilder
     from .context_matrix import ContextMatrix
     from .gateway import GatewayResult, SemanticGateway
-except ModuleNotFoundError as e:
-    print("Legacy gateway import failed:", e)
+except ModuleNotFoundError:
     ACELayer = None
     ACELayerResult = None
     ContextField = None
