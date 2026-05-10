@@ -38,13 +38,13 @@ into:
 
 input
 ↓
-context detection
+semantic runtime evaluation
 ↓
-contextual reference field
+dispersion gate
 ↓
-ACE energy evaluation
+routing policy
 ↓
-LLM generation
+LLM inference
 
 ```
 
@@ -92,6 +92,36 @@ The runtime firewall operates as a lightweight middleware layer before LLM gener
 
 ---
 
+## ACE Atlas Integration (v1.1)
+
+ACE Semantic Gateway v1.1 integrates the ACE Atlas semantic runtime framework as its core evaluation engine.
+
+ACE Atlas provides:
+
+- semantic field geometry
+- origin cost evaluation
+- semantic density estimation
+- field competition analysis
+- runtime stability evaluation
+- semantic dispersion gating
+
+ACE Semantic Gateway operationalizes these mechanisms through:
+
+- FastAPI middleware endpoints
+- runtime routing
+- clarification policies
+- profile-aware inference control
+- and future enterprise orchestration systems
+
+Together they form:
+
+ACE Atlas → semantic runtime engine  
+ACE Semantic Gateway → operational middleware layer
+
+
+
+---
+
 ## Core Idea
 
 The ACE framework introduces a **geometric interpretation of semantic alignment**.
@@ -105,7 +135,8 @@ Candidate responses are evaluated by measuring their deviation from that context
 ACE origin energy:
 
 
-O(z) = || z − P_S(z) ||²
+```math
+O(z) = \| z - P_S(z) \|^2
 
 
 Where:
@@ -205,10 +236,15 @@ This allows the system to distinguish between:
 
 # Repository Structure
 
-```
+```text
 ace-semantic-gateway
 │
 ├─ gateway/
+│   ├─ atlas_adapter.py
+│   ├─ embedding_router.py
+│   ├─ semantic_fields.py
+│   ├─ origin_cost.py
+│   ├─ api.py
 │   ├─ context_matrix.py
 │   ├─ context_field.py
 │   ├─ ace_layer.py
@@ -290,6 +326,31 @@ CLARIFY: False
 ```
 
 The system determines the contextual domain **before inference occurs**.
+
+## Start API
+
+```bash
+python -m uvicorn gateway.api:app --reload --port 8000
+```
+
+## Runtime Example
+
+```powershell
+Invoke-RestMethod `
+  -Uri "http://127.0.0.1:8000/guard" `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{"text":"After reviewing the data"}'
+```
+
+Expected result:
+
+```json
+{
+  "action": "CLARIFY",
+  "allow_llm": false
+}
+```
 
 ---
 
@@ -494,4 +555,4 @@ to
 
 **contextual semantic alignment**
 
-```
+
