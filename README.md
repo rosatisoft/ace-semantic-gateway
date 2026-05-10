@@ -135,10 +135,8 @@ Candidate responses are evaluated by measuring their deviation from that context
 ACE origin energy:
 
 
-```
-$$
-O(z) = \| z - P_S(z) \|^2
-$$
+O(z) = || z − P_S(z) ||²
+
 
 Where:
 
