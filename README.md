@@ -135,9 +135,10 @@ Candidate responses are evaluated by measuring their deviation from that context
 ACE origin energy:
 
 
-```math
+```
+$$
 O(z) = \| z - P_S(z) \|^2
-
+$$
 
 Where:
 
@@ -182,32 +183,29 @@ OUTPUT VALIDATION
 
 ```mermaid
 flowchart TD
-    A[Input] --> B[Context Matrix]
+    A[User Input] --> B[ACE Semantic Gateway]
 
-    B --> C{Context clear?}
+    B --> C[ACE Atlas Runtime Evaluator]
 
-    C -- No --> D[Clarification Layer]
-    D --> E[Refined Input]
-    E --> B
+    C --> D[Semantic Field Evaluation]
+    D --> E[Origin Cost]
+    D --> F[Semantic Density]
+    D --> G[Field Competition Margin]
+    D --> H[Stability Index]
 
-    C -- Yes --> F[Context Field]
+    E --> I[Semantic Dispersion Gate]
+    F --> I
+    G --> I
+    H --> I
 
-    F --> G[Reference Prompt]
-    F --> H[Axioms]
-    F --> I[Knowledge Anchors]
+    I --> J{Runtime Policy}
 
-    G --> J[ACE Layer]
-    H --> J
-    I --> J
-    A --> J
+    J -- ALLOW --> K[Full LLM Reasoning]
+    J -- ALLOW_LIGHT --> L[Lightweight / Constrained Reasoning]
+    J -- CLARIFY --> M[Clarification Request]
 
-    J --> K[Origin Cost: O_z]
-
-    K --> L{Thresholds}
-
-    L -- Low --> M[Answer]
-    L -- Medium --> N[Clarify or Deep Analysis]
-    L -- High --> O[Abstain or Block]
+    M --> N[Refined User Input]
+    N --> B
 ```
 
 ---
